@@ -40,6 +40,9 @@ class QuillActiveFormEditor extends InputWidget
     ];
     public $inputOptions = [
         'class' => 'form-control',
+        'style'=>[
+            'display'=>'none',
+        ],
     ];
 
     public function run()

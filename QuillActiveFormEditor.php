@@ -33,13 +33,16 @@ class QuillActiveFormEditor extends InputWidget
                 [[ 'font'=> [] ]],
                 [[ 'align'=> [] ]],
                 ['clean'],
-                ['link', 'image']
+                ['link', 'image','video', 'formula']
             ],
         ],
         'theme'=>'snow',
     ];
     public $inputOptions = [
         'class' => 'form-control',
+        'style'=>[
+            'display'=>'none',
+        ],
     ];
 
     public function run()
@@ -55,7 +58,10 @@ class QuillActiveFormEditor extends InputWidget
         var editor = new Quill("#'.$this->editorId.'", '.Json::encode($this->options).');
         jQuery("'.$form_selector.'").on("beforeSubmit", function() {
             var input = $(this).find("#'.$inputId.'");
-            input.val(JSON.stringify(editor.getContents()));
+            var delta = editor.getContents();
+            input.val(JSON.stringify(delta));
+//            var qdc = new window.QuillDeltaToHtmlConverter(delta.ops, window.opts_ || {});
+//            var html = qdc.convert();
         });';
         $this->view->registerJs($initial_js);
         $this->inputOptions['hidden'] = true;

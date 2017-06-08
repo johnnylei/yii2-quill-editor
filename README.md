@@ -3,7 +3,7 @@
 
 ## install
 ```
-composer require --prefer-dist johnnylei/yii2-quill-editor
+composer require --prefer-dist johnnylei/quill
 ```
 
 ## usage

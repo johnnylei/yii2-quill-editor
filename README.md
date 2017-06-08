@@ -21,4 +21,9 @@ composer require --prefer-dist johnnylei/quill
 <input type="submit">
 <?php ActiveForm::end()?>
 ```
+> delta数据转化成html
+```
+var qdc = new window.QuillDeltaToHtmlConverter(delta.ops, window.opts_ || {});
+var html = qdc.convert();
+```
 
